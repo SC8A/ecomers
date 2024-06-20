@@ -3,14 +3,17 @@ export default {addProduct, loadProducts, loadProductsById, deleteProduct};
 
 
 const path='./data/products.json';
+let temp_product = []
+
 
 async function loadProducts(){
     try {
-        //#TODO hacer que si el archivo esta vacio cree un array en el archivo
         const data = await fs.promises.readFile(path, 'utf-8')
-        const parseData = JSON.parse(data)
-        const products = parseData || []
-        return products
+        if (data){
+            temp_product = JSON.parse(data)
+            return temp_product
+        }
+        return [] 
     } catch (err) {
         console.error(`Failed to read data: ${err}`)
     }

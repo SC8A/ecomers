@@ -4,7 +4,7 @@ import products from "../utils/products.js";
 const router = Router();
 
 router.get("/products", async (req, res) => {
-    const data = await products.loadProducts();
+    const data = await products.loadProducts();     
     res.send(data);
   })
 router.get("/products/:id", async (req, res) => {
@@ -32,4 +32,4 @@ router.delete("/products/:id", async (req, res) => {
   }
 })
 
-  export default router
+export default router
