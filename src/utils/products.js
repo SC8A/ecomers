@@ -1,8 +1,7 @@
 import fs from 'fs';
 export default {addProduct, loadProducts, loadProductsById, deleteProduct};
 
-
-const path='./data/products.json';
+const path='././data/products.json';
 let temp_product = []
 
 
@@ -63,7 +62,6 @@ async function deleteProduct(id){
     try {
         const data = await loadProducts()
         const products = data.filter((p) => p.id !== Number(id))
-        console.log(products)
         await fs.promises.writeFile(path, JSON.stringify(products))
         return products 
     } catch (error) {

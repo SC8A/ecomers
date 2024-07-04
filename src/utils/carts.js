@@ -3,7 +3,7 @@ import products_functions from './products.js';
 export default {createCart, loadCarts, addProductToCart, loadCartById}
 
 let temp_carts = [];
-const path = "./data/carts.json";
+const path = "././data/carts.json";
 
 async function loadCarts(){
     const cartsJson = await fs.promises.readFile(path, "utf-8");

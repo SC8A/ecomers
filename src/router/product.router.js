@@ -1,7 +1,9 @@
 import { Router } from "express";
 import products from "../utils/products.js";
+import {checkProductData} from '../middleware/checkProductData.middleware.js'
 
 const router = Router();
+
 
 router.get("/products", async (req, res) => {
     const data = await products.loadProducts();     
@@ -11,7 +13,7 @@ router.get("/products/:id", async (req, res) => {
     const data = await products.loadProductsById(Number(req.params.id));
     res.send(data);
   })
-router.post("/products", async (req, res) => {
+router.post("/products",checkProductData, async (req, res) => {
     const body = req.body;
     const data = await products.addProduct(body);
     res.send(data);
