@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <form class="d-flex flex-column gap-2 m-3" id="addForm">
+            <input id="title" type="text" placeholder="Nombre del producto" style="min-width: 25%; min-height: 2rem;" required/>
+            <input id="price" type="number" placeholder="Precio del producto"
+                style="min-width: 25%; min-height: 2rem;" required/>
+            <input id="description" type="text" placeholder="Decription del producto"
+                style="min-width: 25%; min-height: 2rem;" required/>
+            <input id="stock" type="number" placeholder="stock" style="min-width: 25%; min-height: 2rem;" required/>
+            <input id="code" type="text" placeholder="code" style="min-width: 25%; min-height: 2rem;" required/>
+            <input id="category" type="text" placeholder="category" style="min-width: 25%; min-height: 2rem;" required/>
+            <input id="thumbnails" type="text" value="Thumbnails" placeholder="thumbnails"
+                style="min-width: 25%; min-height: 2rem;" disabled/>
+            <button type="submit" class="btn btn-primary" style="min-width: 25%; min-height: 2rem;">agregar
+                producto</button>
+        </form>
+    </div>
+    <form class="d-flex flex-column gap-2 m-3" id="deleteForm">
+        <input id="id" type="text" name="id" placeholder="Id del producto" />
+        <button type="submit" class="btn btn-primary">Eliminar producto</button>
+    </form>
+    <div id="productsList"></div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>

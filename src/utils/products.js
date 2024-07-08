@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { v4 as uuid } from "uuid";
 export default {addProduct, loadProducts, loadProductsById, deleteProduct};
 
 const path='././data/products.json';
@@ -23,7 +24,7 @@ async function addProduct(body){
         const products = await loadProducts()
         const {title,description,code,price,stock,category,thumbnails} = body;
         const newProduct = {
-            id: products.length +1,
+            id: uuid(),
             title,
             description,
             code,
@@ -43,7 +44,7 @@ async function addProduct(body){
 async function loadProductsById(id, body = {}){
     try {
         const products = await loadProducts()
-        const index = products.findIndex((p) => p.id === Number(id))
+        const index = products.findIndex((p) => p.id === id)
         if (body){
             products[index] = {
             ...products[index],
@@ -61,7 +62,7 @@ async function loadProductsById(id, body = {}){
 async function deleteProduct(id){
     try {
         const data = await loadProducts()
-        const products = data.filter((p) => p.id !== Number(id))
+        const products = data.filter((p) => p.id !== id)
         await fs.promises.writeFile(path, JSON.stringify(products))
         return products 
     } catch (error) {
