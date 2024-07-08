@@ -9,7 +9,7 @@ router.get("/products", async (req, res) => {
   res.send(data);
 });
 router.get("/products/:id", async (req, res) => {
-  const data = await products.loadProductsById(Number(req.params.id));
+  const data = await products.loadProductsById(req.params.id);
   res.send(data);
 });
 router.post("/products", checkProductData, async (req, res) => {
@@ -18,7 +18,7 @@ router.post("/products", checkProductData, async (req, res) => {
   res.send(data);
 });
 router.put("/products/:id", async (req, res) => {
-  const id = Number(req.params.id);
+  const id = req.params.id;
   const body = req.body;
   const data = await products.loadProductsById(id, body);
   res.send(data);

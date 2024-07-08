@@ -1,5 +1,6 @@
 import fs from 'fs';
 import products_functions from './products.js';
+import shortUuid  from "short-uuid";
 export default {createCart, loadCarts, addProductToCart, loadCartById}
 
 let temp_carts = [];
@@ -19,7 +20,7 @@ async function createCart(){
     try {
        const carts = await loadCarts()
        const newCart = {
-        id: carts.length +1,
+        id: shortUuid.generate(),
         products: [],  
        };
        carts.push(newCart);
@@ -33,12 +34,12 @@ async function createCart(){
 async function addProductToCart(cart_id, product_id){
     try {
         const carts = await loadCarts()
-        const cart = carts.find((i) => i.id === Number(cart_id))
-        const cart_index = carts.findIndex((i) => i.id === Number(cart_id))
-        const product = await products_functions.loadProductsById(Number(product_id));
+        const cart = carts.find((i) => i.id === cart_id)
+        const cart_index = carts.findIndex((i) => i.id === cart_id)
+        const product = await products_functions.loadProductsById(product_id);
         //If the product already exist in the array of products
-        const verification = carts[cart_index].products.find((p) => p.product === Number(product_id))
-        const verification_idex = carts[cart_index].products.findIndex((p) => p.product === Number(product_id))
+        const verification = carts[cart_index].products.find((p) => p.product === product_id)
+        const verification_idex = carts[cart_index].products.findIndex((p) => p.product === product_id)
         if (verification){ 
             carts[cart_index].products[verification_idex].quantity += 1
             await fs.promises.writeFile(path, JSON.stringify(carts))
@@ -47,7 +48,7 @@ async function addProductToCart(cart_id, product_id){
         //if the product does not exist in the cart
         if (cart && product){
             const new_product = {
-                product: Number(product_id),
+                product: product_id,
                 quantity: 1,
             }
             carts[cart_index].products.push(new_product)
@@ -64,7 +65,7 @@ async function addProductToCart(cart_id, product_id){
 async function loadCartById(id){
     try {
         const carts = await loadCarts();
-        const cart = carts.find(c => c.id === Number(id));
+        const cart = carts.find(c => c.id === id);
         if (cart){
             return cart
         }

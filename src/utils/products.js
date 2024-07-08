@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { v4 as uuid } from "uuid";
+import shortUuid  from "short-uuid";
 export default {addProduct, loadProducts, loadProductsById, deleteProduct};
 
 const path='././data/products.json';
@@ -24,7 +24,7 @@ async function addProduct(body){
         const products = await loadProducts()
         const {title,description,code,price,stock,category,thumbnails} = body;
         const newProduct = {
-            id: uuid(),
+            id: shortUuid.generate(5),
             title,
             description,
             code,
@@ -41,19 +41,11 @@ async function addProduct(body){
         console.log("Could no save the product")
     }
 }
-async function loadProductsById(id, body = {}){
+async function loadProductsById(id){
     try {
         const products = await loadProducts()
-        const index = products.findIndex((p) => p.id === id)
-        if (body){
-            products[index] = {
-            ...products[index],
-            ...body,
-        }
-        await fs.promises.writeFile(path, JSON.stringify(products))
-        return products[index]
-       }
-       return products[index]
+        const product = products.find((p) => p.id === id)
+        return product
     
     } catch (error) {
         console.warn("Could not load the data")
