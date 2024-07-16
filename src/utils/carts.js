@@ -1,7 +1,9 @@
 import fs from 'fs';
 import products_functions from './products.js';
 import shortUuid  from "short-uuid";
+
 export default {createCart, loadCarts, addProductToCart, loadCartById}
+
 
 let temp_carts = [];
 const path = "././data/carts.json";

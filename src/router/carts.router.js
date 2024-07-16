@@ -1,6 +1,6 @@
 import { Router } from "express";
 import carts from "../utils/carts.js";
-
+import cartDao from "../dao/cart.dao.js"; 
 const router = Router();
 
 router.get("/carts", async (req, res) => {
@@ -9,7 +9,7 @@ router.get("/carts", async (req, res) => {
 });
 router.get("/carts/:cart_id", async (req, res) => {
   const id = req.params.cart_id;
-  const data = await carts.loadCartById(id);
+  const data = await cartDao.getById(id);
   res.send(data);
 });
 
@@ -19,7 +19,7 @@ router.post("/:cart_id/carts/:product_id", async (req, res) => {
   res.send(data);
 });
 router.post("/carts", async (req, res) => {
-  const data = await carts.createCart();
+  const data = await cartDao.createCart();
   res.send(data);
 });
 

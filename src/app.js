@@ -5,9 +5,13 @@ import viewRoutes from "./router/views.router.js";
 import handlebars from "express-handlebars";
 import __dirname from "./dirname.js";
 import { Server } from "socket.io";
-const app = express();
-const port = 8080;
+import { mongoDbconnection } from "./utils/db_connection.js";
+import 'dotenv/config'
 
+const app = express();
+const port = process.env.PORT;
+
+mongoDbconnection()
 app.engine("handlebars", handlebars.engine()); //Ininit templantes motor
 app.set("views", __dirname + "/views");
 app.set("view engine", "handlebars");
