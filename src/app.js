@@ -6,12 +6,12 @@ import handlebars from "express-handlebars";
 import __dirname from "./dirname.js";
 import { Server } from "socket.io";
 import { mongoDbconnection } from "./utils/db_connection.js";
-import 'dotenv/config'
+import "dotenv/config";
 
 const app = express();
 const port = process.env.PORT;
 
-mongoDbconnection()
+mongoDbconnection();
 app.engine("handlebars", handlebars.engine()); //Ininit templantes motor
 app.set("views", __dirname + "/views");
 app.set("view engine", "handlebars");

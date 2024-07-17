@@ -19,14 +19,14 @@ router.get("/realtimeproducts", async (req, res) => {
   res.render("realTimeProducts");
 });
 
-router.post("/realtimeproducts",checkProductData, async (req, res) => {
+router.post("/realtimeproducts", checkProductData, async (req, res) => {
   await data.addProduct(req.body);
   const updated_products = await data.loadProducts();
   io.emit("products", updated_products);
   res.render("realTimeProducts");
 });
 
-router.delete("/realtimeproducts" ,async (req, res) => {
+router.delete("/realtimeproducts", async (req, res) => {
   console.log(req.body);
   const { id } = req.body;
   console.log(id);

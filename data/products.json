@@ -1,1 +1,46 @@
-[{"id":"briTVyAzDxomhPt4uZgQpf","title":"Licensed Rubber Computer","description":"foreground","code":"MWK","price":438.84,"status":true,"stock":922,"category":"catogoria x","thumbnails":""},{"id":"214mTycU1MpENEZZ635nNg","title":"Generic Metal Chips","description":"modular","code":"SAR","price":7.91,"status":true,"stock":169,"category":"catogoria x","thumbnails":""},{"id":"dfvLGENQK6EbE5wejfumto","title":"Fantastic Plastic Salad","description":"bifurcated","code":"MUR","price":412.2,"status":true,"stock":381,"category":"catogoria x","thumbnails":""},{"id":"a9xdSZaYkH1uEuvwdcgTE7","title":"Tasty Rubber Bike","description":"fault-tolerant","code":"JOD","price":740.95,"status":true,"stock":326,"category":"catogoria x","thumbnails":""}]
+[
+  {
+    "id": "briTVyAzDxomhPt4uZgQpf",
+    "title": "Licensed Rubber Computer",
+    "description": "foreground",
+    "code": "MWK",
+    "price": 438.84,
+    "status": true,
+    "stock": 922,
+    "category": "catogoria x",
+    "thumbnails": ""
+  },
+  {
+    "id": "214mTycU1MpENEZZ635nNg",
+    "title": "Generic Metal Chips",
+    "description": "modular",
+    "code": "SAR",
+    "price": 7.91,
+    "status": true,
+    "stock": 169,
+    "category": "catogoria x",
+    "thumbnails": ""
+  },
+  {
+    "id": "dfvLGENQK6EbE5wejfumto",
+    "title": "Fantastic Plastic Salad",
+    "description": "bifurcated",
+    "code": "MUR",
+    "price": 412.2,
+    "status": true,
+    "stock": 381,
+    "category": "catogoria x",
+    "thumbnails": ""
+  },
+  {
+    "id": "a9xdSZaYkH1uEuvwdcgTE7",
+    "title": "Tasty Rubber Bike",
+    "description": "fault-tolerant",
+    "code": "JOD",
+    "price": 740.95,
+    "status": true,
+    "stock": 326,
+    "category": "catogoria x",
+    "thumbnails": ""
+  }
+]

@@ -1,5 +1,4 @@
 import { Router } from "express";
-import products from "../utils/products.js";
 import { checkProductData } from "../middleware/checkProductData.middleware.js";
 import productDao from "../dao/product.dao.js";
 const router = Router();
@@ -21,7 +20,7 @@ router.put("/products/:id", async (req, res) => {
   const id = req.params.id;
   const body = req.body;
   const data = await productDao.update(id, body);
-  res.send(data);
+  res.status(200).send(data);
 });
 router.delete("/products/:id", async (req, res) => {
   try {

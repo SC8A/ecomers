@@ -1,27 +1,45 @@
-import { productModel } from "./models/product.model.js"
+import { json } from "express";
+import { productModel } from "./models/product.model.js";
 
 const getAll = async () => {
-    const product = await productModel.find()
-    return product
-}
+  try {
+    return await productModel.find();
+  } catch (error) {
+    console.warn("Could not load the products");
+  }
+};
 
 const getById = async (id) => {
-    const product = await productModel.findById(id)
-    return product
-}
+  try {
+    return await productModel.findById(id);
+  } catch (error) {
+    console.warn("Could not load the product");
+  }
+};
+
 const createProduct = async (data) => {
-    const product = await productModel.create(data)
-    return product 
-}
+  try {
+    const product = await productModel.create(data);
+    return product;
+  } catch (error) {
+    console.warn("Could not create the product");
+  }
+};
 
-const update = async(id, data) =>{
-    const product = await productModel.findByIdAndUpdate(id, data, {new: true})
-    return product
-}
+const update = async (id, data) => {
+  try {
+    return await productModel.findByIdAndUpdate(id, data, { new: true });
+  } catch (error) {
+    console.warn("Could not update the product");
+  }
+};
 
-const deleteOne = async(id) => {
-    const product = await productModel.findByIdAndDelete(id)
-    return product
-}
+const deleteOne = async (id) => {
+  try {
+    return await productModel.findByIdAndDelete(id);
+  } catch (error) {
+    console.warn("Could not delete the product");
+  }
+};
 
-export default { getById, createProduct, getAll, update, deleteOne }
+export default { getById, createProduct, getAll, update, deleteOne };

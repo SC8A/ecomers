@@ -52,7 +52,7 @@ addForm.addEventListener("submit", async (event) => {
       stock: stock.value,
       code: code.value,
       category: category.value,
-      thumbnails: thumbnails.value
+      thumbnails: thumbnails.value,
     }),
   });
 });

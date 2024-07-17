@@ -1,6 +1,5 @@
-
 Puerto=8080
-endpoints= 
+endpoints=
 
 Get
 /api/products --> Load all products
@@ -9,16 +8,16 @@ Get
 Post
 /api/products --> Add product
 product = {
-    default
-    id: number | string,
-    title: string,
-    description: string,
-    code: string,
-    price: number,
-    status: Boolen --> True by default,
-    stock: Number,
-    category: Number,
-    thumbnails: links of the product images, 
+default
+id: number | string,
+title: string,
+description: string,
+code: string,
+price: number,
+status: Boolen --> True by default,
+stock: Number,
+category: Number,
+thumbnails: links of the product images,
 }
 
 Todos los campos son obligatorios, a excepción de thumbnails
@@ -28,5 +27,3 @@ put
 
 Delete
 /api/products/:pid --> Delete de product
-
-
